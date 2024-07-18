@@ -1,0 +1,30 @@
+
+user functinality : 
+------------------
+1) register
+2) login
+3) profile
+4) change password
+5) change address
+
+User signup validation :
+------------------------
+1) username length should be greater than 4 characters
+2) password length should be greater than 6 characters
+3) email is valid
+4) username already exists
+5) email already exists
+
+
+book functinality: 
+-------------------
+only admin can perform all task
+
+1) Admin can add book only
+2) Admin can Update book only
+3) Admin can Delete book only
+4) Admin can get all books 
+5) Get recent add book 
+6) Get Books By Id 
+
+
