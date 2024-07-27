@@ -11,7 +11,7 @@ const register = async (req, res) => {
 
   try {
     // assuming the req.body contains all the user data
-    const { username, email, password, address, role } = req.body;
+    const { username, email, password, address, role, number } = req.body;
 
     // check if username length is greater than 4
     if (username.length < 4) {
@@ -56,6 +56,7 @@ const register = async (req, res) => {
       password: hashedPassword,
       address: address,
       role: role,
+      number: number,
     });
     const savedUser = await newUser.save();
     // console.log("user created successfully", savedUser);
@@ -78,7 +79,6 @@ const register = async (req, res) => {
 };
 
 // login API's
-
 const login = async (req, res) => {
   try {
     // assuming the req.body contains all the user data

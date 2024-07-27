@@ -1,10 +1,11 @@
 const express = require('express')
 const app = express()
+const cors = require('cors');
 const db = require('./config/db');
 require('dotenv').config();
 
-
 app.use(express.json());
+app.use(cors());
 
 app.get('/',  (req, res) =>{
   res.send('Congrats! Your server is up and running!')
@@ -25,7 +26,10 @@ app.use('/cart', cartRouter);
 const orderRouter = require('./routes/order.route.js');
 app.use('/order', orderRouter);
 
-const  PORT =  process.env.PORT || 5454;
+
+const  PORT =  process.env.PORT || 1000;
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)
 })
+
+
