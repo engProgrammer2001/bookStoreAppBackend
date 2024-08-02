@@ -68,7 +68,7 @@ const register = async (req, res) => {
     // console.log("token_is : ", token);
 
     return res.status(201).json({
-      message: "user created successfully",
+      message: "You have Registered successfully",
       data: savedUser,
       token: token,
     });
