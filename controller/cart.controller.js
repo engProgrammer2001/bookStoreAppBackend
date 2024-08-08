@@ -61,7 +61,7 @@ const deleteFromCart = async (req, res) => {
         const index = user.cart.indexOf(bookId);
         user.cart.splice(index, 1);
         await user.save();
-        return res.status(200).json({ message: "Book deleted from cart" });
+        return res.status(200).json({ message: "Book Removed from cart" });
 
     } catch (error) {
         console.log("deleteFromCart controller error", error);

@@ -15,6 +15,7 @@ const orderSchema = new mongoose.Schema(
       type: String,
       default: "Order Placed",
       enum: [
+        "Order Placed", // Added to enum values
         "Confirm Order",
         "Out For Delivery",
         "Delivered Order",
@@ -26,7 +27,6 @@ const orderSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
 
 const Order = mongoose.model("orders", orderSchema);
 module.exports = Order;

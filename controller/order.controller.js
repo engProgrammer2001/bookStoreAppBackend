@@ -5,24 +5,20 @@ const placeOrder = async (req, res) => {
   try {
     // extract userId from req.user
     const userId = req.user.userId.id;
-    console.log("userId", userId);
 
-    // extract order details from req.body
-    const order = req.body;
+    // extract order details from req.body.order
+    const { order } = req.body; // Destructure order from req.body
 
     // Ensure the order is an array
-    if (!Array.isArray(order)) {
+    if (!order || !Array.isArray(order)) {
       return res.status(400).json({ message: "Order should be an array of items" });
     }
-
-    console.log("order", order);
 
     for (const userData of order) {
       const newOrder = new Order({
         user: userId,
         book: userData._id,
       });
-
       const orderDataFromDb = await newOrder.save();
 
       // saving order in user model
@@ -31,7 +27,6 @@ const placeOrder = async (req, res) => {
           orders: orderDataFromDb._id,
         },
       });
-
       // clear cart
       await User.findByIdAndUpdate(userId, {
         $pull: {
@@ -41,7 +36,6 @@ const placeOrder = async (req, res) => {
     }
 
     return res.status(200).json({ status: "success", message: "Order placed successfully" });
-
   } catch (error) {
     console.log("placeOrder controller error", error);
     return res.status(500).json({ message: "Internal Server Error" });
@@ -49,6 +43,7 @@ const placeOrder = async (req, res) => {
 };
 
 // get order history of user
+
 const getOrderHistory = async (req, res) => {
   try {
     // extract userId from req.user
@@ -105,5 +100,4 @@ module.exports = {
   getOrderHistory,
   getAllOrderHistory,
   updateOrderStatus
-
 };

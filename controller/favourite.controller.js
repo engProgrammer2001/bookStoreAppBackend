@@ -53,7 +53,7 @@ const deleteBookFromFavourite = async (req, res) => {
     const index = userData.favourites.indexOf(bookId);
     userData.favourites.splice(index, 1);
     await userData.save();
-    return res.status(200).json({ message: "Book deleted from favourite" });
+    return res.status(200).json({ message: "Book Removed from favourite" });
   } catch (error) {
     console.log();
   }

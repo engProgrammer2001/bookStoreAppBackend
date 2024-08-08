@@ -5,7 +5,7 @@ const favouriteController = require("../controller/favourite.controller.js");
 
 
 router.put("/add/:id", jwtAuthMiddleware,  favouriteController.addBookToFavourite);
-router.delete("/delete/:id", jwtAuthMiddleware,  favouriteController.deleteBookFromFavourite);
+router.put("/delete/:id", jwtAuthMiddleware,  favouriteController.deleteBookFromFavourite);
 router.get("/", jwtAuthMiddleware,  favouriteController.getAllFavouriteBooks);
 
 
