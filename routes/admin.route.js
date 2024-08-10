@@ -12,4 +12,6 @@ router.get("/allbooks", adminController.getAllBooks );
 router.get("/recentbooks", adminController.getRecentBooks );
 router.get("/book/:id", adminController.getBookById );
 
+    
+
 module.exports = router;

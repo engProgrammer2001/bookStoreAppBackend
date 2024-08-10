@@ -13,7 +13,6 @@ const placeOrder = async (req, res) => {
     if (!order || !Array.isArray(order)) {
       return res.status(400).json({ message: "Order should be an array of items" });
     }
-
     for (const userData of order) {
       const newOrder = new Order({
         user: userId,
@@ -42,8 +41,8 @@ const placeOrder = async (req, res) => {
   }
 };
 
-// get order history of user
 
+// get order history of user
 const getOrderHistory = async (req, res) => {
   try {
     // extract userId from req.user
