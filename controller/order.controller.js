@@ -87,12 +87,14 @@ const updateOrderStatus = async (req, res) => {
       return res.status(404).json({ message: "order not found with this id" });
     }
     return res.status(200).json({ message: "order status updated successfully", orderData: orderData });
-    
+    s
   } catch (error) {
     console.log("updateOrderStatus controller error", error);
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+
 
 module.exports = {
   placeOrder,
@@ -100,3 +102,5 @@ module.exports = {
   getAllOrderHistory,
   updateOrderStatus
 };
+
+
