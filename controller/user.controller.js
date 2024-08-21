@@ -1,7 +1,6 @@
 const generateToken = require("../config/jwtProvider");
 const User = require("../models/user.model.js");
-import bcrypt from 'bcryptjs';
-
+const bcrypt = require('bcryptjs');
 
 
 const register = async (req, res) => {
