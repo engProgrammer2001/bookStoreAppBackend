@@ -80,6 +80,7 @@ const updateOrderStatus = async (req, res) => {
       return res.status(401).json({ message: "you don't have admin access" });
     }
 
+
     // update order status
     const orderId = req.params.id;
     const orderData = await Order.findByIdAndUpdate(orderId, { status: req.body.status });
@@ -93,6 +94,8 @@ const updateOrderStatus = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+
 
 
 

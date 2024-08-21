@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
     avatar: {
       type: String,
       default:
-        "https://e7.pngegg.com/pngimages/81/570/png-clipart-profile-logo-computer-icons-user-user-blue-heroes-thumbnail.png",
+        "https://cdn.pixabay.com/photo/2023/04/21/15/42/portrait-7942151_640.jpg",
     },
     role: {
       type: String,

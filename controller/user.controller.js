@@ -190,10 +190,25 @@ const updateAddress = async (req, res) => {
   }
 };
 
+// get all users 
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().sort({ createdAt: -1 });
+    return res.status(200).json({ status: "success", users });
+  } catch (error) {
+    console.log("getAllUsers controller error", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+
 module.exports = {
   register,
   login,
   changePassword,
   getUserprofile,
   updateAddress,
+  getAllUsers,
 };
+
+

@@ -107,6 +107,9 @@ const deleteBook = async (req, res) => {
   }
 };
 
+
+
+
 //  get all books data
 const getAllBooks = async (req, res) => {
   try {
@@ -118,7 +121,6 @@ const getAllBooks = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
 //get recent add add 4 books
 const getRecentBooks = async (req, res) => {
   try {
@@ -129,6 +131,7 @@ const getRecentBooks = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 
 // get book by id
 const getBookById = async (req, res) => {
@@ -142,6 +145,19 @@ const getBookById = async (req, res) => {
   }
 };
 
+// get book by category 
+const getBooksByCategory = async (req, res) => {
+  // console.log("request : ",req)
+  try {
+    const category = req.params.category;
+    // console.log("category", category);
+    const books = await Book.find({ category: category });
+    return res.status(200).json({ status: "success", books });
+  } catch (error) {
+    console.log("getBooksByCategory controller error", error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
 
 
 module.exports = {
@@ -151,4 +167,5 @@ module.exports = {
   getAllBooks,
   getRecentBooks,
   getBookById,
+  getBooksByCategory,
 };

@@ -11,6 +11,7 @@ router.delete("/delete/books/:id", jwtAuthMiddleware, adminController.deleteBook
 router.get("/allbooks", adminController.getAllBooks );
 router.get("/recentbooks", adminController.getRecentBooks );
 router.get("/book/:id", adminController.getBookById );
+router.get('/books/category/:category', adminController.getBooksByCategory);
 
     
 
