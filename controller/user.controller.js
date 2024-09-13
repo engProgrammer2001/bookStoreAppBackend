@@ -139,6 +139,7 @@ const getUserprofile = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 const changePassword = async (req, res) => {
   try {
     // extract userid from req.user

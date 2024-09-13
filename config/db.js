@@ -23,6 +23,7 @@ db.on("error", () => {
   console.log("MangoDB connection error");
 });
 
+
 db.on("disconnected", () => {
   console.log("MongoDB connection is disconnected");
 });
